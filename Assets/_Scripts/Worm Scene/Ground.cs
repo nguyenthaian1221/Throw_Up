@@ -1,4 +1,5 @@
 
+using Collider2DOptimization;
 using DigitalRuby.AdvancedPolygonCollider;
 using UnityEngine;
 
@@ -67,10 +68,9 @@ public class Ground : MonoBehaviour
             Debug.LogWarning("wrapMode must be Clamp");
 
         UpdateTexture();
-       
-        gameObject.AddComponent<PolygonCollider2D>();
-      
 
+        gameObject.AddComponent<PolygonCollider2D>();
+       
     }
 
     void MakeAHole(CircleCollider2D col)
@@ -100,8 +100,9 @@ public class Ground : MonoBehaviour
         cloneTexture.Apply();
         UpdateTexture();
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
-       
+      
         gameObject.AddComponent<PolygonCollider2D>();
+
     }
 
     void UpdateTexture()
@@ -135,6 +136,6 @@ public class Ground : MonoBehaviour
             return;
 
         MakeAHole(collision.GetComponent<CircleCollider2D>());
-        Destroy(collision.gameObject,0.2f);
+        Destroy(collision.gameObject, 0.2f);
     }
 }
