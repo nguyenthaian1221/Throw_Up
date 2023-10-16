@@ -34,15 +34,15 @@ public class PlayerController : MonoBehaviour
 
         direction = GetDirection(angleInDegree);
         //LaunchForce = HelperMath.ResultForce(curPos.position, targetPos.position, angleInDegree);
-        //LaunchForce = HelperMath.ResultForceWithAirResistance(curPos.position, targetPos.position, angleInDegree,CoreGameplay.Instance.windForce);
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Shoot();
-        //}
-        if (!grounded)
+        LaunchForce = HelperMath.ResultForceWithAirResistance(curPos.position, targetPos.position, angleInDegree,CoreGameplay.Instance.windForce);
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.position = transform.position - new Vector3(0, Time.deltaTime * 3, 0);
+            Shoot();
         }
+        //if (!grounded)
+        //{
+        //    transform.position = transform.position - new Vector3(0, Time.deltaTime * 3, 0);
+        //}
     }
 
     private void FixedUpdate()
